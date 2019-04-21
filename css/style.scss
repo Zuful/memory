@@ -1,0 +1,84 @@
+$fruitDimension: 90px;
+
+@mixin fruit-card($position){
+  height: $fruitDimension;
+  width: $fruitDimension;
+  background: url(../assets/cards.png) 0px $position;
+}
+
+td {
+  height: $fruitDimension;
+  width: $fruitDimension;
+}
+
+.red-apple{
+  @include fruit-card(0px);
+}
+
+.banana{
+  @include fruit-card(-92px);
+}
+
+.orange{
+  @include fruit-card(-202px);
+}
+
+.green-lemon{
+  @include fruit-card(-297px);
+}
+
+.cranberry{
+  @include fruit-card(-400px);
+}
+
+.orange-apricot{
+  @include fruit-card(-493px);
+}
+
+.yellow-lemon{
+  @include fruit-card(-593px);
+}
+
+.strawberry{
+  @include fruit-card(-697px);
+}
+
+.green-apple{
+  @include fruit-card(-805px);
+}
+
+.peach{
+  @include fruit-card(-900px);
+}
+
+.grapes{
+  @include fruit-card(-1007px);
+}
+
+.watermelon{
+  @include fruit-card(-1098px);
+}
+
+.purple-apricot{
+  @include fruit-card(-1200px);
+}
+
+.pear{
+  @include fruit-card(-1300px);
+}
+
+.red-cherry{
+  @include fruit-card(-1406px);
+}
+
+.raspberry{
+  @include fruit-card(-1500px);
+}
+
+.mango{
+  @include fruit-card(-1598px);
+}
+
+.yellow-cherry{
+  @include fruit-card(-1690px);
+}
