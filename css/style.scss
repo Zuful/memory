@@ -1,12 +1,60 @@
 $fruitDimension: 90px;
+$contentMarginLeft: 25%;
+
 
 @mixin fruit-card($position){
   height: $fruitDimension;
   width: $fruitDimension;
   background: url(../assets/cards.png) 0px $position;
 }
+@mixin difficulty(){
+  text-decoration: none;
+  font-family: Shanti;
+  font-size: 20px;
+}
 
-td {
+#container{
+  width: 100%;
+}
+
+a#easy {
+  @include difficulty();
+}
+
+a#normal {
+  @include difficulty();
+}
+
+a#hard {
+  @include difficulty();
+}
+
+#upper {
+  font-family: Shanti;
+  margin-left: $contentMarginLeft;
+}
+
+audio {
+  margin-top: 1%;
+  margin-right: 29%;
+}
+
+.difficulty {
+  height: 70px;
+  width: 80px;
+}
+
+table {
+  margin-top: 3%;
+  margin-left: $contentMarginLeft;
+
+  td {
+    height: $fruitDimension;
+    width: $fruitDimension;
+  }
+}
+
+.question-mark {
   height: $fruitDimension;
   width: $fruitDimension;
 }

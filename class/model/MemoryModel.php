@@ -6,26 +6,44 @@ use type\Score;
 
 class MemoryModel
 {
-    private $_allFruits;
+    private $_gameFruits;
+    private $_normalFruits;
+    private $_hardFruits;
     private $_numberOfROws;
     private $_numberOfCells;
+    public $songPath;
 
-    public function __construct($numberOfRows, $numberOfCells){
-        $this->newGame($numberOfRows, $numberOfCells);
-    }
-
-    public function newGame($numberOfRows, $numberOfCells){
-        $this->_allFruits = array(
+    public function __construct(){
+        $this->_gameFruits = array(
             "red-apple", "banana", "orange", "green-lemon", "cranberry", "orange-apricot", "yellow-lemon", "strawberry",
-            "green-apple", "peach", "grapes", "watermelon", 'purple-apricot', "pear", "red-cherry", "raspberry", "mango",
-            "yellow-cherry",
-            "red-apple", "banana", "orange", "green-lemon", "cranberry", "orange-apricot", "yellow-lemon", "strawberry",
-            "green-apple", "peach", "grapes", "watermelon", 'purple-apricot', "pear", "red-cherry", "raspberry", "mango",
-            "yellow-cherry"
+            "green-apple", "peach"
         );
 
-        $this->_numberOfCells = $numberOfCells;
-        $this->_numberOfROws = $numberOfRows;
+        $this->_normalFruits = array_merge($this->_gameFruits, array("grapes", "watermelon", 'purple-apricot', "pear"));
+        $this->_hardFruits = array_merge($this->_normalFruits, array("red-cherry", "raspberry", "mango", "yellow-cherry"));
+
+        $this->_numberOfROws = 4;
+    }
+
+    public function setEasyMode() {
+        $this->songPath = "audio/final-fantasy-VIII-breezy.ogg";
+        $this->_gameFruits = array_merge($this->_gameFruits, $this->_gameFruits);
+
+        $this->_numberOfCells = 5;
+    }
+
+    public function setNormalMode() {
+        $this->songPath = "audio/ffx -soundtrack-omega-ruins-theme.ogg";
+        $this->_gameFruits = array_merge($this->_normalFruits, $this->_normalFruits);
+
+        $this->_numberOfCells = 7;
+    }
+
+    public function setHardMode() {
+        $this->songPath = "audio/metal-gear-solid-2-Twilight-Sniping.ogg";
+        $this->_gameFruits = array_merge($this->_hardFruits, $this->_hardFruits);
+
+        $this->_numberOfCells = 9;
     }
 
     /**
@@ -70,14 +88,22 @@ class MemoryModel
         $rowCells = "";
 
         for ($i = 0; $i < $this->_numberOfCells; $i++) {
-            if(!empty($this->_allFruits)){
-                $imgPath = "http://localhost/memory/assets/empty.gif";
-                $fruitKey = array_rand($this->_allFruits, 1);
+            if(!empty($this->_gameFruits)){
+                $imgFruitPath = "assets/empty.gif";
+                $imgQuestionMark = "assets/question-mark.png";
+
+                $fruitKey = array_rand($this->_gameFruits, 1);
                 $rowCells .= "<td>
-                                <img alt='" . $this->_allFruits[$fruitKey] . "' class='" . $this->_allFruits[$fruitKey] . "' src='". $imgPath ."' width='1' height='1' />
+                                <img    alt='" . $this->_gameFruits[$fruitKey] . "' 
+                                        id='" . $fruitKey . "'
+                                        class='" . $this->_gameFruits[$fruitKey] . " fruit' 
+                                        src='". $imgFruitPath ."' width='1' height='1' />
+                                        
+                                <img    class='" . $fruitKey . " question-mark' 
+                                        src='". $imgQuestionMark ."'/>
                               </td>";
 
-                unset($this->_allFruits[$fruitKey]);
+                unset($this->_gameFruits[$fruitKey]);
             }
 
         }
