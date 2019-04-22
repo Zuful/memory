@@ -2,18 +2,25 @@
 
 namespace memory;
 
+include_once dirname(__FILE__) . "/../helper/HelperConnection.php";
+
+use helper\HelperConnection;
 use type\Score;
+use PDO;
 
 class MemoryModel
 {
+    private $_helperConnection;
     private $_gameFruits;
     private $_normalFruits;
     private $_hardFruits;
     private $_numberOfROws;
     private $_numberOfCells;
     public $songPath;
+    public $numberOfPairs;
 
     public function __construct(){
+        $this->_helperConnection = new HelperConnection();
         $this->_gameFruits = array(
             "red-apple", "banana", "orange", "green-lemon", "cranberry", "orange-apricot", "yellow-lemon", "strawberry",
             "green-apple", "peach"
@@ -27,23 +34,27 @@ class MemoryModel
 
     public function setEasyMode() {
         $this->songPath = "audio/final-fantasy-VIII-breezy.ogg";
-        $this->_gameFruits = array_merge($this->_gameFruits, $this->_gameFruits);
-
+        $this->numberOfPairs = count($this->_gameFruits);
         $this->_numberOfCells = 5;
+
+        $this->_gameFruits = array_merge($this->_gameFruits, $this->_gameFruits);
     }
 
     public function setNormalMode() {
         $this->songPath = "audio/ffx -soundtrack-omega-ruins-theme.ogg";
+        $this->numberOfPairs = count($this->_normalFruits);
+        $this->_numberOfCells = 7;
+
         $this->_gameFruits = array_merge($this->_normalFruits, $this->_normalFruits);
 
-        $this->_numberOfCells = 7;
     }
 
     public function setHardMode() {
         $this->songPath = "audio/metal-gear-solid-2-Twilight-Sniping.ogg";
-        $this->_gameFruits = array_merge($this->_hardFruits, $this->_hardFruits);
-
+        $this->numberOfPairs = count($this->_hardFruits);
         $this->_numberOfCells = 9;
+
+        $this->_gameFruits = array_merge($this->_hardFruits, $this->_hardFruits);
     }
 
     /**
@@ -51,17 +62,32 @@ class MemoryModel
      * @param string $finishingTime
      * @return bool
      */
-    public function saveTime($playerName, $finishingTime){
-        $isSaved = false;
+    public function saveScore($playerName, $diffiulty, $finishingTime){
+        $sql = "INSERT INTO ranking (player_name, difficulty, `time`) VALUES (:player_name, :difficulty, :time)";
+        $pdo = $this->_helperConnection->getPdo();
+        $req = $pdo->prepare($sql);
 
-        return $isSaved;
+        return $req->execute(array(":player_name" => $playerName, ":difficulty" => $diffiulty, ":time" => $finishingTime));
     }
 
     /**
      * @return Score[]
      */
-    public function displayHighScores(){
+    public function getHighScores(){
         $highScores = array();
+        $sql = "SELECT * FROM ranking ORDER BY `time` DESC LIMIT 10";
+        $pdo = $this->_helperConnection->getPdo();
+        $req = $pdo->query($sql);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($res as $oneScore){
+            $scoreObs = new Score();
+            $scoreObs->playerName = $oneScore["player_name"];
+            $scoreObs->difficulty = $oneScore["difficulty"];
+            $scoreObs->completionTime = $oneScore["time"];
+
+            $highScores[] = $scoreObs;
+        }
 
         return $highScores;
     }

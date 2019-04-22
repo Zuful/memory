@@ -142,3 +142,21 @@ table {
 .yellow-cherry{
   @include fruit-card(-1690px);
 }
+
+#chrono {
+  margin-left: $contentMarginLeft;
+  font-family: Shanti;
+  font-size: 100px;
+}
+
+#myProgress {
+  margin-left: $contentMarginLeft;
+  width: 50%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}

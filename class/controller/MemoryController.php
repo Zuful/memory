@@ -38,4 +38,19 @@ class MemoryController
     public function getSongPath() {
         return $this->_memoryModel->songPath;
     }
+
+    public function getNumberOfPairs(){
+        return $this->_memoryModel->numberOfPairs;
+    }
+
+    public function saveScore(){
+        if( (isset($_POST["player_name"]) && $_POST["player_name"] != "") &&
+            (isset($_POST["difficulty"]) && $_POST["difficulty"] != "") &&
+            (isset($_POST["time"]) && $_POST["time"] != "")){
+
+            $this->_memoryModel->saveScore($_POST["player_name"], $_POST["difficulty"], $_POST["time"]);
+
+            exit;
+        }
+    }
 }
