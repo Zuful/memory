@@ -34,11 +34,23 @@ a#hard {
   margin-left: $contentMarginLeft;
 }
 
+h1{
+  float: left;
+}
+
+h3{
+  font-family: Shanti;
+}
+
 audio {
+  float: right;
   margin-top: 1%;
   margin-right: 29%;
 }
-
+#difficulty{
+  margin-left: $contentMarginLeft;
+  margin-top: 5%;
+}
 .difficulty {
   height: 70px;
   width: 80px;

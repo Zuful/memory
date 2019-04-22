@@ -24,18 +24,19 @@
                 <source src="<?php echo $memoryController->getSongPath(); ?>" type="audio/ogg">
                 <p>Message</p>
             </audio>
-            <div id="difficulty">
-                <h3>Difficulté : </h3>
-                <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=easy'; ?>" id="easy">
-                    <img class="difficulty" src="assets/goldfish.png" alt="un poisson rouge" title="facile">
-                </a> &nbsp;-
-                <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=normal'; ?>" id="normal">
-                    <img class="difficulty"  src="assets/humans.png" alt="un homme et une femme" title="normal">
-                </a> &nbsp;-
-                <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=hard'; ?>" id="hard">
-                    <img class="difficulty"  src="assets/elephant.png" alt="un éléphant" title="difficile">
-                </a>
-            </div>
+        </div>
+        <br>
+        <div id="difficulty">
+            <h3>Difficulty : </h3>
+            <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=easy'; ?>" id="easy">
+                <img class="difficulty" src="assets/goldfish.png" alt="un poisson rouge" title="facile">
+            </a> &nbsp;-
+            <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=normal'; ?>" id="normal">
+                <img class="difficulty"  src="assets/humans.png" alt="un homme et une femme" title="normal">
+            </a> &nbsp;-
+            <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=hard'; ?>" id="hard">
+                <img class="difficulty"  src="assets/elephant.png" alt="un éléphant" title="difficile">
+            </a>
         </div>
         <table>
             <?php echo $memoryController->getTableRows(); ?>
