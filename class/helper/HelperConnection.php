@@ -4,10 +4,11 @@
 namespace helper;
 
 use PDO;
+use PDOException;
 
 class HelperConnection{
     /**
-     * Returns an PDO instance of a connexion to the database given in parameter
+     * Retourne une instance pdo de connexion à la base de donnée
      *
      * @return PDO|false
      */
@@ -20,9 +21,10 @@ class HelperConnection{
 
         try{
             $pdo = new PDO($dns, $username ,  $password);
+            // Permet l'affichage de message en cas d'erreur MySQL
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-        catch(\PDOException $e){
+        catch(PDOException $e){ // On attrape l'exception en cas de problème de connexion et on affiche le msg d'erreur
             print "Error !: " . $e->getMessage();
             return false;
         }
