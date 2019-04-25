@@ -1,0 +1,229 @@
+#container {
+  width: 100%;
+}
+
+a#easy {
+  text-decoration: none;
+  font-family: Shanti;
+  font-size: 20px;
+}
+
+a#normal {
+  text-decoration: none;
+  font-family: Shanti;
+  font-size: 20px;
+}
+
+a#hard {
+  text-decoration: none;
+  font-family: Shanti;
+  font-size: 20px;
+}
+
+#upper {
+  font-family: Shanti;
+  margin-left: 25%;
+}
+
+h1 {
+  float: left;
+}
+
+h3 {
+  font-family: Shanti;
+}
+
+audio {
+  float: right;
+  margin-top: 1%;
+  margin-right: 29%;
+}
+
+#difficulty {
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+.difficulty {
+  height: 70px;
+  width: 80px;
+  border-right-style: dotted;
+  border-right-width: 3px;
+  border-right-color: black;
+}
+
+table {
+  margin-top: 3%;
+  margin-left: 25%;
+}
+table td {
+  height: 90px;
+  width: 90px;
+}
+
+.question-mark {
+  height: 90px;
+  width: 90px;
+}
+
+.red-apple {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px 0px;
+}
+
+.banana {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -92px;
+}
+
+.orange {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -202px;
+}
+
+.green-lemon {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -297px;
+}
+
+.cranberry {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -400px;
+}
+
+.orange-apricot {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -493px;
+}
+
+.yellow-lemon {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -593px;
+}
+
+.strawberry {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -697px;
+}
+
+.green-apple {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -805px;
+}
+
+.peach {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -900px;
+}
+
+.grapes {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1007px;
+}
+
+.watermelon {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1098px;
+}
+
+.purple-apricot {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1200px;
+}
+
+.pear {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1300px;
+}
+
+.red-cherry {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1406px;
+}
+
+.raspberry {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1500px;
+}
+
+.mango {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1598px;
+}
+
+.yellow-cherry {
+  height: 90px;
+  width: 90px;
+  background: url(../assets/cards.png) 0px -1690px;
+}
+
+#chrono {
+  margin-left: 25%;
+  font-family: Shanti;
+  font-size: 100px;
+}
+
+#myProgress {
+  margin-left: 25%;
+  width: 50%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

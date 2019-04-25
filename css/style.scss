@@ -1,7 +1,6 @@
 $fruitDimension: 90px;
 $contentMarginLeft: 25%;
 
-
 @mixin fruit-card($position){
   height: $fruitDimension;
   width: $fruitDimension;
