@@ -23,6 +23,23 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous|Shanti|Voces" rel="stylesheet">
 </head>
 <body>
+    <!-- la modale des meilleurs scores -->
+    <div id="myModal" class="modal">
+        <!-- le contenu de la modale -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <table>
+                <tr>
+                    <th>Rang</th>
+                    <th>Nom</th>
+                    <th>temps</th>
+                    <th>difficulté</th>
+                </tr>
+                <?php echo $memoryController->getHighscoreTableRows(); ?>
+            </table>
+        </div>
+    </div>
+
     <div id="container">
         <div id="upper">
             <h1>Memory</h1>
@@ -34,17 +51,18 @@
         </div>
 
         <br>
+
         <!-- ces liens redirigent vers la page courante en y ajoutant le paramètre de difficulté -->
         <div id="difficulty">
             <h3>Difficulté : <?php echo $difficulty; ?></h3>
 
             <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=easy'; ?>" id="easy">
                 <img class="difficulty" src="assets/goldfish.png" alt="un poisson rouge" title="facile">
-            </a> &nbsp;-
+            </a>
 
             <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=normal'; ?>" id="normal">
                 <img class="difficulty"  src="assets/humans.png" alt="un homme et une femme" title="normal">
-            </a> &nbsp;-
+            </a>
 
             <a href="<?php echo $_SERVER["PHP_SELF"] . '?difficulty=hard'; ?>" id="hard">
                 <img class="difficulty"  src="assets/elephant.png" alt="un éléphant" title="difficile">
@@ -53,7 +71,7 @@
 
         <!-- le contenu du tableau html est généré dynamiquement depuis le code php appelé dans la balise "table" -->
         <table>
-            <?php echo $memoryController->getTableRows(); ?>
+            <?php echo $memoryController->getCardsTableRows(); ?>
         </table>
         <!-- ce span est utilisé par le code javascript pour afficher le chronomètre -->
         <span id="chrono"></span>

@@ -13,6 +13,8 @@ class HelperConnection{
      * @return PDO|false
      */
     public function getPdo(){
+        // dans une application réelle, ces informations doivent être sécurisées
+        // s'agissant d'un projet sans envergure, je les laisse afin d'en faciliter la mise en place
         $dbName = "3BDBktRgQ7";
         $username = "3BDBktRgQ7";
         $dbHost = "remotemysql.com";

@@ -3,6 +3,7 @@
 namespace memory;
 
 include_once dirname(__FILE__) . "/../helper/HelperConnection.php";
+include_once dirname(__FILE__) . "/../type/Score.php";
 
 use helper\HelperConnection;
 use type\Score;
@@ -49,7 +50,6 @@ class MemoryModel
 
         // on double l'array afin de créer la paire de fruits
         $this->_gameFruits = array_merge($this->_normalFruits, $this->_normalFruits);
-
     }
 
     /**
@@ -86,11 +86,35 @@ class MemoryModel
     }
 
     /**
+     * Retourne le contenu html de la liste des meilleurs scores
+     *
+     * @return string
+     */
+    public function getHighScoresRows(){
+        $rank = 1;
+        $listContent = "";
+        $highScores = $this->_getHighScores();
+
+        foreach ($highScores as $oneScore){
+            $listContent .= "<tr>
+                                <td>" . $rank . "</td>
+                                <td>" . htmlentities($oneScore->playerName). "</td>
+                                <td>" . htmlentities($oneScore->completionTime) . "</td>
+                                <td>" . htmlentities($oneScore->difficulty) . "</td>
+                             </tr>";
+
+            $rank++;
+        }
+
+        return $listContent;
+    }
+
+    /**
      * Retourne la collection des 10 meilleurs scores
      *
      * @return Score[]
      */
-    public function getHighScores(){
+    private function _getHighScores(){
         $highScores = array();
         $sql = "SELECT * FROM ranking ORDER BY `time` ASC LIMIT 10";
         $pdo = $this->_helperConnection->getPdo();// récupération d'une instance de connection PDO
@@ -115,7 +139,7 @@ class MemoryModel
      *
      * @return string
      */
-    public function generateFruitRow() {
+    public function generateFruitRows() {
 
         $tableContent = "";// initialisation du contenu avec une chaine vide à laquelle on concaténera le contenu
 

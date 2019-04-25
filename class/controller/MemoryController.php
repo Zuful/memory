@@ -7,7 +7,7 @@ include_once(dirname(__FILE__) . "/../model/MemoryModel.php");
 class MemoryController{
     private $_memoryModel;
 
-    // Le constructeur permet d'initialiser des éléments à la création d'une instance
+    // le constructeur permet d'initialiser des éléments à la création d'une instance
     function __construct($difficulty){
         $this->_memoryModel = new MemoryModel();
 
@@ -38,12 +38,21 @@ class MemoryController{
     }
 
     /**
+     * Renvoi le contenu du tableau html contenant les meilleurs scores.
+     *
+     * @return string;
+     */
+    public function getHighscoreTableRows() {
+       return $this->_memoryModel->getHighScoresRows();
+    }
+
+    /**
      * Renvoi le contenu du tableau html contenant les cartes de fruits.
      *
      * @return string;
      */
-    public function getTableRows() {
-       return $this->_memoryModel->generateFruitRow();
+    public function getCardsTableRows() {
+       return $this->_memoryModel->generateFruitRows();
     }
 
     /**
