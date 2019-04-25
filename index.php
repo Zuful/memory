@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <title>Memory</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <!-- import du fichier css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- import des fonts -->
